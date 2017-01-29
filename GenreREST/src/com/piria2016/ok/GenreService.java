@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import dao.DaoFactory;
 import dao.DaoUtils;
 
-@Path("/GenreService")
+@Path("/")
 public class GenreService {
 
 	
@@ -29,7 +29,8 @@ public class GenreService {
 	
 	@GET
 	@Path("/movieByGenre/{genre}")
-	@Produces(MediaType.TEXT_PLAIN)
+//	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String getMoviesByGenre(@PathParam("genre") String genre) {
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		Connection conn = null;
@@ -65,7 +66,7 @@ public class GenreService {
 			}
 
 
-			System.out.println("from soap genres: " + jArray.toString());
+			System.out.println("from rest genres: " + jArray.toString());
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -112,7 +113,7 @@ public class GenreService {
 				jArray.put(actorJson);
 			}
 
-			System.out.println("from soap actors: " + jArray.toString());
+			System.out.println("from rest actors: " + jArray.toString());
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -155,7 +156,7 @@ public class GenreService {
 				jArray.put(genreJson);
 			}
 
-			System.out.println("from soap genres: " + jArray.toString());
+			System.out.println("from rest genres: " + jArray.toString());
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
